@@ -13,7 +13,7 @@ module.exports = {
     });
     args = args.encode().toArrayBuffer();
     request('', 400, args, messages.SimpleConnectOuput, function (err, result) {
-          var client = new Client(result.token);
+          var client = Client(result.token);
       cb(err, client);
     });
   }
