@@ -13,7 +13,7 @@ module.exports = {
       isDevRoom: false //TODO: this should be if development server
     });
     console.log('module.exports', module.exports);
-    request(module.exports.token, 27, args.toBuffer(), messages.CreateJoinRoomOutput, function (err, obj) {
+    request(this._token, 27, args.toBuffer(), messages.CreateJoinRoomOutput, function (err, obj) {
        console.log(err, obj);
       let connection = new Connection(obj.endpoints, obj.joinKey, joinData, obj.roomId);
       connection.on('connect', ()=> {
@@ -23,7 +23,6 @@ module.exports = {
          cb(connection.error);
       });
     });
-  }
+  } ,
+  _token: null
 };
-
-module.exports.token = null;

@@ -1,6 +1,7 @@
 var messages = require('./messages.js');
 var request = require('./request.js');
 var multiplayer = require('./multiplayer');
+var Client = require('./client.js');
 
 module.exports = {
   simpleConnect: function (gameId, usernameOrEmail, password, playerInsightSegments, cb) {
@@ -12,8 +13,8 @@ module.exports = {
     });
     args = args.encode().toArrayBuffer();
     request('', 400, args, messages.SimpleConnectOuput, function (err, result) {
-           multiplayer.token = result.token;
-      cb(err, result);
+          var client = new Client(result.token);
+      cb(err, client);
     });
   }
 };
