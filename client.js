@@ -1,4 +1,4 @@
-var multiplayer = require('./muliplayer');
+var multiplayer = require('./multiplayer.js');
 
 module.export = function Client(token) {
   return {
