@@ -1,0 +1,695 @@
+{
+    "package": null,
+    "messages": [
+        {
+            "name": "KeyValuePair",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "key",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "value",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "PlayerInsightState",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "playersOnline",
+                    "id": 1
+                },
+                {
+                    "rule": "repeated",
+                    "type": "KeyValuePair",
+                    "name": "segments",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ServerEndpoint",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "address",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "port",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "SimpleConnectArgs",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "gameId",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "usernameOrEmail",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "password",
+                    "id": 3
+                },
+                {
+                    "rule": "repeated",
+                    "type": "string",
+                    "name": "playerInsightSegments",
+                    "id": 4
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "clientAPI",
+                    "id": 5
+                },
+                {
+                    "rule": "repeated",
+                    "type": "KeyValuePair",
+                    "name": "clientInfo",
+                    "id": 6
+                }
+            ]
+        },
+        {
+            "name": "SimpleConnectOutput",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "token",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "userId",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "bool",
+                    "name": "showBranding",
+                    "id": 3
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "gameFSRedirectMap",
+                    "id": 4
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "partnerId",
+                    "id": 5
+                }
+            ]
+        },
+        {
+            "name": "SimpleRegisterArgs",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "gameId",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "username",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "password",
+                    "id": 3
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "email",
+                    "id": 4
+                },
+                {
+                    "rule": "repeated",
+                    "type": "KeyValuePair",
+                    "name": "extraData",
+                    "id": 5
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "captchaKey",
+                    "id": 6
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "captchaValue",
+                    "id": 7
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "partnerId",
+                    "id": 8
+                },
+                {
+                    "rule": "repeated",
+                    "type": "string",
+                    "name": "playerInsightSegments",
+                    "id": 9
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "clientAPI",
+                    "id": 10
+                },
+                {
+                    "rule": "repeated",
+                    "type": "KeyValuePair",
+                    "name": "clientInfo",
+                    "id": 11
+                }
+            ]
+        },
+        {
+            "name": "SimpleRegisterOutput",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "token",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "userId",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "bool",
+                    "name": "showBranding",
+                    "id": 3
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "gameFSRedirectMap",
+                    "id": 4
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "partnerId",
+                    "id": 5
+                },
+                {
+                    "rule": "optional",
+                    "type": "PlayerInsightState",
+                    "name": "playerInsightState",
+                    "id": 6
+                }
+            ]
+        },
+        {
+            "name": "SimpleRegisterError",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "errorCode",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "message",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "usernameError",
+                    "id": 3
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "passwordError",
+                    "id": 4
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "emailError",
+                    "id": 5
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "captchaError",
+                    "id": 6
+                }
+            ]
+        },
+        {
+            "name": "CreateRoomArgs",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "roomId",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "roomType",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "bool",
+                    "name": "visible",
+                    "id": 3
+                },
+                {
+                    "rule": "repeated",
+                    "type": "KeyValuePair",
+                    "name": "roomData",
+                    "id": 4
+                },
+                {
+                    "rule": "optional",
+                    "type": "bool",
+                    "name": "isDevRoom",
+                    "id": 5
+                }
+            ]
+        },
+        {
+            "name": "CreateRoomOutput",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "roomId",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "JoinRoomArgs",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "roomId",
+                    "id": 1
+                },
+                {
+                    "rule": "repeated",
+                    "type": "KeyValuePair",
+                    "name": "joinData",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "bool",
+                    "name": "isDevRoom",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "name": "JoinRoomOutput",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "joinKey",
+                    "id": 1
+                },
+                {
+                    "rule": "repeated",
+                    "type": "ServerEndpoint",
+                    "name": "endpoints",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "CreateJoinRoomArgs",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "roomId",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "roomType",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "bool",
+                    "name": "visible",
+                    "id": 3
+                },
+                {
+                    "rule": "repeated",
+                    "type": "KeyValuePair",
+                    "name": "roomData",
+                    "id": 4
+                },
+                {
+                    "rule": "repeated",
+                    "type": "KeyValuePair",
+                    "name": "joinData",
+                    "id": 5
+                },
+                {
+                    "rule": "optional",
+                    "type": "bool",
+                    "name": "isDevRoom",
+                    "id": 6
+                }
+            ]
+        },
+        {
+            "name": "CreateJoinRoomOutput",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "roomId",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "joinKey",
+                    "id": 2
+                },
+                {
+                    "rule": "repeated",
+                    "type": "ServerEndpoint",
+                    "name": "endpoints",
+                    "id": 3
+                }
+            ]
+        },
+        {
+            "name": "ValueObject",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "string",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "int32",
+                    "id": 3
+                },
+                {
+                    "rule": "optional",
+                    "type": "uint32",
+                    "name": "uInt",
+                    "id": 4
+                },
+                {
+                    "rule": "optional",
+                    "type": "int64",
+                    "name": "long",
+                    "id": 5
+                },
+                {
+                    "rule": "optional",
+                    "type": "bool",
+                    "name": "bool",
+                    "id": 6
+                },
+                {
+                    "rule": "optional",
+                    "type": "float",
+                    "name": "float",
+                    "id": 7
+                },
+                {
+                    "rule": "optional",
+                    "type": "double",
+                    "name": "double",
+                    "id": 8
+                },
+                {
+                    "rule": "optional",
+                    "type": "bytes",
+                    "name": "byteArray",
+                    "id": 9
+                },
+                {
+                    "rule": "optional",
+                    "type": "int64",
+                    "name": "dateTime",
+                    "id": 10
+                },
+                {
+                    "rule": "repeated",
+                    "type": "ArrayProperty",
+                    "name": "arrayProperties",
+                    "id": 11
+                },
+                {
+                    "rule": "repeated",
+                    "type": "ObjectProperty",
+                    "name": "objectProperties",
+                    "id": 12
+                }
+            ],
+            "enums": [
+                {
+                    "name": "valueType",
+                    "values": [
+                        {
+                            "name": "STRING",
+                            "id": 0
+                        },
+                        {
+                            "name": "INT",
+                            "id": 1
+                        },
+                        {
+                            "name": "UINT",
+                            "id": 2
+                        },
+                        {
+                            "name": "LONG",
+                            "id": 3
+                        },
+                        {
+                            "name": "BOOL",
+                            "id": 4
+                        },
+                        {
+                            "name": "FLOAT",
+                            "id": 5
+                        },
+                        {
+                            "name": "DOUBLe",
+                            "id": 6
+                        },
+                        {
+                            "name": "BYTEARRAY",
+                            "id": 7
+                        },
+                        {
+                            "name": "ARRAY",
+                            "id": 9
+                        },
+                        {
+                            "name": "OBJ",
+                            "id": 10
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ObjectProperty",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "name",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "ValueObject",
+                    "name": "value",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "ArrayProperty",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "index",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "ValueObject",
+                    "name": "value",
+                    "id": 2
+                }
+            ]
+        },
+        {
+            "name": "BigDBObject",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "key",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "version",
+                    "id": 2
+                },
+                {
+                    "rule": "repeated",
+                    "type": "ObjectProperty",
+                    "name": "properties",
+                    "id": 3
+                },
+                {
+                    "rule": "optional",
+                    "type": "uint32",
+                    "name": "creator",
+                    "id": 4
+                }
+            ]
+        },
+        {
+            "name": "LoadMyPlayerObjectArgs",
+            "fields": []
+        },
+        {
+            "name": "LoadMyPlayerObjectOutput",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "BigDBObject",
+                    "name": "playerObject",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "PlayerIOError",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "errorCode",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "message",
+                    "id": 2
+                }
+            ]
+        }
+    ],
+    "enums": [
+        {
+            "name": "valueType",
+            "values": [
+                {
+                    "name": "STRING",
+                    "id": 0
+                },
+                {
+                    "name": "INT",
+                    "id": 1
+                },
+                {
+                    "name": "UINT",
+                    "id": 2
+                },
+                {
+                    "name": "LONG",
+                    "id": 3
+                },
+                {
+                    "name": "BOOL",
+                    "id": 4
+                },
+                {
+                    "name": "FLOAT",
+                    "id": 5
+                },
+                {
+                    "name": "DOUBLe",
+                    "id": 6
+                },
+                {
+                    "name": "BYTEARRAY",
+                    "id": 7
+                },
+                {
+                    "name": "ARRAY",
+                    "id": 9
+                },
+                {
+                    "name": "OBJ",
+                    "id": 10
+                }
+            ]
+        }
+    ]
+}
