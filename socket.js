@@ -9,8 +9,12 @@ import BinarySerializer from './binary-serializer';
  */
 export default class Connection extends EventEmitter {
   static _getEndpoint(endpoints) {
-    let endpoint = endpoints[0];
-    endpoint.address = `ws://${endpoint.address}`;
+    let endpoint = endpoints[1] || {};
+    // endpoint.address = `ws://localhost:8000?url=${endpoint.address}&port=${endpoint.port}`;
+    // endpoint.address = 'ws://localhost:8000?url=echo.websocket.org&port=80';
+    //endpoint.address = 'ws://localhost';
+    // endpoint.port = 8184;
+    // endpoint.address = 'ws://localhost:1234/proxy/ws://' + endpoint.address;
     return endpoint;
   }
 
@@ -53,7 +57,7 @@ export default class Connection extends EventEmitter {
     this._isConnected = false;
     this._roomId = roomId;
 
-    let endpoint = Connection._getEndpoint(endpoints);
+    var endpoint = Connection._getEndpoint(endpoints);
     let serializer = new BinarySerializer();
 
     serializer.on('message', (message) => {
@@ -71,15 +75,17 @@ export default class Connection extends EventEmitter {
       }
     });
 
-    let sock = new WebSocket(endpoint.address);
+    let sock = new WebSocket('ws://localhost:7000');
+    sock.binaryType = 'arraybuffer';
     this._sock = sock;
 
     sock.onopen = function () {
+      self._sock.send(endpoint.address + ':' + endpoint.port);
       self._sock.send(new Buffer([0]));
       let msg = new Message('join', joinKey);
       if (joinData != null) {
-        for (let [key, value] of joinData) {
-          msg.add(key, value);
+        for (let key in joinData) {
+          msg.add(key, joinData[key]);
         }
       }
       self.send(msg);

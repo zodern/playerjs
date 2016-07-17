@@ -432,6 +432,81 @@
             ]
         },
         {
+            "name": "ListRoomsArgs",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "roomType",
+                    "id": 1
+                },
+                {
+                    "rule": "repeated",
+                    "type": "KeyValuePair",
+                    "name": "searchCriteria",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "resultLimit",
+                    "id": 3
+                },
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "resultOffset",
+                    "id": 4
+                },
+                {
+                    "rule": "optional",
+                    "type": "bool",
+                    "name": "onlyDevRooms",
+                    "id": 5
+                }
+            ]
+        },
+        {
+            "name": "ListRoomsOutput",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "RoomInfo",
+                    "name": "rooms",
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "name": "RoomInfo",
+            "fields": [
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "id",
+                    "id": 1
+                },
+                {
+                    "rule": "optional",
+                    "type": "string",
+                    "name": "roomType",
+                    "id": 2
+                },
+                {
+                    "rule": "optional",
+                    "type": "int32",
+                    "name": "onlineUsers",
+                    "id": 3
+                },
+                {
+                    "rule": "optional",
+                    "type": "KeyValuePair",
+                    "name": "roomData",
+                    "id": 4
+                }
+            ]
+        },
+        {
             "name": "ValueObject",
             "fields": [
                 {
