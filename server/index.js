@@ -3,6 +3,7 @@ var http = require('http');
 var url = require('url');
 var express = require('express');
 var app = express();
+require('./ws/ws2.js');
 
 var proxy = httpProxy.createProxyServer({
   ws: true

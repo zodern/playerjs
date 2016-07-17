@@ -1,10 +1,17 @@
+require('babel-register');
 var WebSocket = require('ws');
 var server = new WebSocket.Server({port: 7000});
+var Socket = require('../ws2.js');
 
 server.on('connection', function connection(client) {
   client.once('message', function incoming(message) {
-    console.log('incoming', message);
-    connect(client, 'ws://' + message + '/');
+    var data = JSON.parse(message);
+    var url = 'ws://' + data.url + '/';
+    var joinKey = data.joinKey;
+    var joinData = data.joinData;
+    var roomId = data.roomId;
+
+    connect(client, url, joinKey, joinData, roomId);
   });
   client.on('error', function (err) {
     console.log('client err', err);
@@ -15,7 +22,10 @@ server.on('error', function (err) {
   console.log('server error', err);
 });
 
-function connect(client, url) {
+function connect(client, url, joinKey, joinData, roomId) {
+  var endpointClient = new Socket([url], joinKey, joinData, roomId);
+
+  return;
   var ws = new WebSocket(url);
   var queue = [];
   var connected = false;

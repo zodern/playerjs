@@ -11,7 +11,7 @@ module.exports = {
       password: password,
       playerInsightSegments: playerInsightSegments
     });
-    args = args.encode().toArrayBuffer();
+    args = args.toBuffer();
     request('', 400, args, messages.SimpleConnectOuput, function (err, result) {
           var client = Client(result.token);
       cb(err, client);

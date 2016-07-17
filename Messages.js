@@ -1,6 +1,5 @@
 var ProtoBuf = require('protobufjs');
 var protoStr = require('./messages.json');
-console.log(protoStr);
 
 var builder = ProtoBuf.loadJson(protoStr);
 

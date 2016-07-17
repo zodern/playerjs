@@ -1,9 +1,10 @@
+
 import net from 'net';
 import { EventEmitter } from 'events';
-import Message from './message';
-import PlayerIOError from './playerio-error';
-import ErrorCode from './error-code';
-import BinarySerializer from './binary-serializer';
+import Message from '../message';
+import PlayerIOError from '../playerio-error';
+import ErrorCode from '../error-code';
+import BinarySerializer from '../binary-serializer';
 
 /**
  * A connection to a running Player.IO multiplayer room.
@@ -13,7 +14,7 @@ export default class Connection extends EventEmitter {
     return endpoints[0];
   }
 
-  /**                               79
+  /**
    * Determines whether the connection is currently connected to a remote host.
    * @type {boolean}
    */
@@ -73,11 +74,10 @@ export default class Connection extends EventEmitter {
     this._sock = sock;
 
     sock.on('connect', () => {
-      console.log('connect');
       this._sock.write(new Buffer([0]));
       let msg = new Message('join', joinKey);
       if (joinData != null) {
-        for (let [key, value] of Object.entries(joinData)) {
+        for (let [key, value] of joinData) {
           msg.add(key, value);
         }
       }
@@ -85,12 +85,10 @@ export default class Connection extends EventEmitter {
     });
 
     sock.on('data', (data) => {
-      console.log('received data');
       serializer.addBytes(data);
     });
 
     sock.on('close', () => {
-      console.log('close');
       if (this._isConnected) {
         this._isConnected = false;
         this.emit('disconnect');

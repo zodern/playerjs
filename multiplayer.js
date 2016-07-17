@@ -15,7 +15,7 @@ module.exports = {
       isDevRoom: false //TODO: this should be if development server
     });
     console.log('module.exports', module.exports);
-    request(this._token, 27, args.encode().toArrayBuffer(), messages.CreateJoinRoomOutput, function (err, obj) {
+    request(this._token, 27, args.encode().toBuffer(), messages.CreateJoinRoomOutput, function (err, obj) {
       console.log(err, obj);
       let connection = new Connection(obj.endpoints, obj.joinKey, joinData, obj.roomId);
       connection.on('connect', ()=> {
@@ -35,7 +35,7 @@ module.exports = {
       onlyDevRooms: onlyDevRooms
     });
 
-    request(this._token, 30, args.encode().toArrayBuffer(), messages.ListRoomsOutput, function (err, result) {
+    request(this._token, 30, args.encode().toBuffer(), messages.ListRoomsOutput, function (err, result) {
       console.log('list rooms', err, result);
       cb(err, result);
     });
